@@ -14,7 +14,7 @@ spring:
           force-pull: true
 
 server:
-  port: 9001
+  port: 8089
 
 management:
   endpoints:

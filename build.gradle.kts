@@ -1,13 +1,14 @@
 plugins {
 	kotlin("jvm") version "1.9.25"
 	kotlin("plugin.spring") version "1.9.25"
-	id("org.springframework.boot") version "3.5.6"
+	id("org.springframework.boot") version "3.5.5"
 	id("io.spring.dependency-management") version "1.1.7"
 }
 
 group = "com.bookingserver"
 version = "0.0.1-SNAPSHOT"
 description = "booking-config-server"
+val springCloudVersion = "2025.0.0"
 
 java {
 	toolchain {
@@ -18,8 +19,6 @@ java {
 repositories {
 	mavenCentral()
 }
-
-extra["springCloudVersion"] = "2025.0.0"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
@@ -32,7 +31,7 @@ dependencies {
 
 dependencyManagement {
 	imports {
-		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+		mavenBom("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
 	}
 }
 
