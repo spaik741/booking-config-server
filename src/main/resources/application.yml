@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: booking-config-server
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/spaik741/booking-config-repository
+          default-label: master
+          timeout: 5
+          clone-on-start: true
+          force-pull: true
+
+server:
+  port: 9001
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
